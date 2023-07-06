@@ -26,7 +26,7 @@ const Hero = () => {
             // initial={{ opacity: 0, x: -200 }}
             // animate={{ opacity: 1, x: 1 }}
             // transition={{ delay: 0.3, duration: 0.4 }}
-            className="text-4xl font-medium"
+            className="text-4xl font-medium text-tertiaryPurple"
           >
             {text}
           </motion.h1>

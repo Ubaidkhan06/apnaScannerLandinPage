@@ -14,7 +14,7 @@ const Section = ({ title, content, imageList, file }) => {
             transition={{ delay: 0.5, duration: 0.2 }}
             whileInView={{ opacity: 1, x: 1 }}
             viewport={{ once: true }}
-            className="text-4xl font-semibold"
+            className="text-4xl font-semibold text-tertiaryPurple"
           >
             {title}
           </motion.h1>

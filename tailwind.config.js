@@ -9,7 +9,7 @@ module.exports = {
     colors: {
       paleBlue: "#E7ECFF",
       mainBlue: "#091133",
-      primaryPurple: "#BFACE2",
+      secondaryPurple: "#BFACE2",
       primaryPurple: "#A084DC",
       tertiaryPurple: "#645CBB",
     },
