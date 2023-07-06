@@ -39,7 +39,7 @@ const Section = ({ title, content, imageList, file }) => {
         >
           {!file ? (
             imageList?.map((ele) => (
-              <motion.div variants={item} className="h-[600px] w-80">
+              <motion.div key={ele.name} variants={item} className="h-[600px] w-80">
                 <Image
                   key={ele.name}
                   src={ele.image}

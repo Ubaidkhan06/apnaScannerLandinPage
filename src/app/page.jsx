@@ -5,7 +5,18 @@ import Pricing from "@/components/Pricing";
 import { motion } from "framer-motion";
 import Section from "@/components/Section";
 import Section1 from "@/components/Section1";
-import { adminPanelScreenShots, content, guestUIScreenShots, section2Content, section2Title, section3Content, section3Title, section4Content, section4Title, title } from "@/utils/constants";
+import {
+  adminPanelScreenShots,
+  content,
+  guestUIScreenShots,
+  section2Content,
+  section2Title,
+  section3Content,
+  section3Title,
+  section4Content,
+  section4Title,
+  title,
+} from "@/utils/constants";
 
 export const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -43,8 +54,8 @@ const tempContent = (
     variants={container}
     viewport={{ once: true }}
   >
-    {arr?.map((ele) => (
-      <motion.li className="mt-1" variants={item}>
+    {arr?.map((ele, idx) => (
+      <motion.li key={idx} className="mt-1" variants={item}>
         {ele}
       </motion.li>
     ))}
