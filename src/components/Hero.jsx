@@ -38,7 +38,7 @@ const Hero = () => {
           >
             Experience the future of dining with our revolutionary automated
             restaurant system. From QR code ordering for customers to streamline
-            the process, to an intuitive chef's profile for kitchen efficiency,
+            the process, to an intuitive chefs profile for kitchen efficiency,
             and a comprehensive data insights dashboard for owners, our
             state-of-the-art technology enhances every aspect of the dining
             experience. Embrace the seamless workflow, increased customer
