@@ -22,7 +22,7 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  overflow: hidden;
+  /* overflow: hidden; */
   scroll-behavior: smooth;
 }
 img,
@@ -55,19 +55,17 @@ h6 {
 
 
 /* custom css */
-
+/* 
 .scroll_container {
   transition: all 0.01s ease-in-out;
-  /* display: flex; */
   overflow: auto;
-  /* flex-direction: column; */
   scroll-snap-type: y mandatory;
 }
 
 .scroll_item {
   min-height: 100%;
   scroll-snap-align: start;
-}
+} */
 
 ::-webkit-scrollbar {
   width: 2px;

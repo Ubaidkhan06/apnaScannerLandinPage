@@ -5,14 +5,14 @@ import Image from "next/image";
 
 const Section1 = ({ imageList, title, content }) => {
   return (
-    <div className="hero min-h-[91vh]">
+    <div className="hero min-h-screen">
       <div className="hero-content flex-col md:flex-row md:gap-40">
         <motion.div
           variants={framerContainer}
           initial={"hidden"}
           whileInView={"visible"}
           viewport={{ once: true }}
-          className="bg-tertiaryPurple p-4"
+          className="bg-error p-4"
           style={{ borderRadius: "57% 43% 42% 58% / 59% 30% 70% 41% " }}
         >
           <motion.div variants={framerItem} className="flex gap-2">
@@ -37,7 +37,7 @@ const Section1 = ({ imageList, title, content }) => {
         >
           <motion.h1
             variants={framerItem}
-            className="text-3xl font-bold text-center md:text-left md:text-5xl bg-tertiaryPurple bg-clip-text text-transparent"
+            className="text-3xl font-bold text-center md:text-left md:text-5xl bg-error bg-clip-text text-transparent"
           >
             {title}
           </motion.h1>

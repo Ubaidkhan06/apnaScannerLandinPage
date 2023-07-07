@@ -17,13 +17,13 @@ const Hero = ({ heading, content }) => {
     }
   }, [index]);
   return (
-    <div className="hero min-h-[91vh]">
+    <div className="hero min-h-screen">
       <div className="hero-content flex-col md:flex-row-reverse">
         <motion.div
           initial={{ opacity: 0, x: 400 }}
           animate={{ opacity: 1, x: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-tertiaryPurple md:h-auto md:w-8/12 lg:h-auto lg:w-9/12"
+          className="bg-error md:h-auto md:w-8/12 lg:h-auto lg:w-9/12"
           style={{ borderRadius: "57% 43% 42% 58% / 59% 30% 70% 41% " }}
         >
           <Player
@@ -38,7 +38,7 @@ const Hero = ({ heading, content }) => {
           />
         </motion.div>
         <div>
-          <h1 className="text-3xl font-bold bg-tertiaryPurple bg-clip-text text-transparent text-center md:text-left md:text-5xl">
+          <h1 className="text-3xl font-bold bg-error bg-clip-text text-transparent text-center md:text-left md:text-5xl">
             {text}
           </h1>
           <motion.p
@@ -53,7 +53,7 @@ const Hero = ({ heading, content }) => {
             initial={{ opacity: 0, x: 1 }}
             animate={{ opacity: 1, x: 1 }}
             transition={{ delay: 1.5, duration: 0.4, type: "spring" }}
-            className="btn btn-ghost bg-tertiaryPurple btn-block md:btn-wide"
+            className="btn btn-error btn-block md:btn-wide"
           >
             Get Started
           </motion.button>

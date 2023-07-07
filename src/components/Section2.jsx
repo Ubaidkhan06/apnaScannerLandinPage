@@ -5,14 +5,14 @@ import Image from "next/image";
 
 const Section2 = ({ title, content, imageList }) => {
   return (
-    <div className="hero min-h-[91vh]">
+    <div className="hero min-h-screen">
       <div className="hero-content flex-col md:flex-row-reverse md:gap-40 md:justify-between">
         <motion.div
           initial={"hidden"}
           whileInView={"visible"}
           variants={framerContainer}
           viewport={{ once: true }}
-          className="bg-tertiaryPurple p-4"
+          className="bg-error p-4"
           style={{ borderRadius: "57% 43% 42% 58% / 59% 30% 70% 41% " }}
         >
           <div className="flex flex-wrap justify-center items-center gap-8">
@@ -23,7 +23,7 @@ const Section2 = ({ title, content, imageList }) => {
                 whileHover={{ scale: 1.15, zIndex: 1 }}
                 className="md:mockup-window bg-neutral-50"
               >
-                <div className="flex flex-wrap justify-center bg-tertiaryPurple">
+                <div className="flex flex-wrap justify-center bg-error">
                   <Image
                     src={ele?.image}
                     width={500}
@@ -46,7 +46,7 @@ const Section2 = ({ title, content, imageList }) => {
         >
           <motion.h1
             variants={framerItem}
-            className="text-3xl font-bold text-center md:text-left md:text-5xl bg-tertiaryPurple bg-clip-text text-transparent"
+            className="text-3xl font-bold text-center md:text-left md:text-5xl bg-error bg-clip-text text-transparent"
           >
             {title}
           </motion.h1>
