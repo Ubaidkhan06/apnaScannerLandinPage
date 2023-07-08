@@ -1,9 +1,10 @@
 "use client";
 import { framerContainer, framerItem } from "@/utils/constants";
+import { Player } from "@lottiefiles/react-lottie-player";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const Section1 = ({ imageList, title, content }) => {
+const Pricing = ({ content }) => {
   return (
     <div className="hero min-h-screen bg-gradient-to-b from-base-100 to-base-300">
       <div className="hero-content flex-col md:flex-row md:gap-40">
@@ -16,18 +17,12 @@ const Section1 = ({ imageList, title, content }) => {
           style={{ borderRadius: "57% 43% 42% 58% / 59% 30% 70% 41% " }}
         >
           <div className="flex justify-center items-center gap-2">
-            {imageList?.map((ele) => (
-              <motion.div variants={framerItem} className="items-center gap-2">
-                <Image
-                  key={ele.name}
-                  src={ele.image}
-                  width={500}
-                  height={500}
-                  alt="ss"
-                  className="w-32 h-64 md:w-64 md:h-[500px]"
-                />
-              </motion.div>
-            ))}
+            <Player
+              src={require("@/lottiefiles/price.json")}
+              loop
+              autoplay
+              style={{ width: "100%", height: "100%" }}
+            />
           </div>
         </motion.div>
         <motion.div
@@ -41,7 +36,7 @@ const Section1 = ({ imageList, title, content }) => {
             variants={framerItem}
             className="text-3xl font-bold text-center md:text-left md:text-5xl bg-gradient-to-r from-secondaryPurple to-tertiaryPurple bg-clip-text text-transparent"
           >
-            {title}
+            Pricing
           </motion.h1>
           <motion.div
             variants={framerItem}
@@ -55,4 +50,4 @@ const Section1 = ({ imageList, title, content }) => {
   );
 };
 
-export default Section1;
+export default Pricing;

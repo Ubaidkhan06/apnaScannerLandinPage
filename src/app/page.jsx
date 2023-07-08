@@ -1,3 +1,4 @@
+import Pricing from "@/components/Pricing";
 import Section1 from "@/components/Section1";
 import Section2 from "@/components/Section2";
 import Section3 from "@/components/Section3";
@@ -6,8 +7,11 @@ import {
   content,
   guestUIScreenShots,
   heading,
+  pricingContent,
   section2Content,
   section2Title,
+  section3Content,
+  section3Title,
   section4Content,
   section4Title,
   tempContent,
@@ -17,7 +21,7 @@ import Navbar from "../components/Navbar";
 
 export default function Home() {
   return (
-    <main data-theme="dark">
+    <main>
       <Navbar>
         <div className="scroll_container">
           <section className="scroll_item">
@@ -43,6 +47,16 @@ export default function Home() {
               content={section4Content}
               imageList={adminPanelScreenShots}
             />
+          </section>
+          <section className="scroll_item">
+            <Section2
+              title={section3Title}
+              content={section3Content}
+              check={require("@/lottiefiles/dashboard.json")}
+            />
+          </section>
+          <section className="scroll_item">
+            <Pricing content={pricingContent}/>
           </section>
         </div>
       </Navbar>

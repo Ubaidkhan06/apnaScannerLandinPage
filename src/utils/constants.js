@@ -1,5 +1,5 @@
-"use client"
-import {motion} from "framer-motion"
+"use client";
+import { motion } from "framer-motion";
 
 export const heading = "Automated Restaurant Management System";
 export const title = "Automate your restaurants";
@@ -74,5 +74,7 @@ export const tempContent = (
   </motion.ul>
 );
 
+export const navbarItems = ["About", "Features", "Pricing", "Contact"];
 
-export const navbarItems = ["About", "Features", "Pricing", "Contact"]
+export const pricingContent =
+  "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident itaque quia unde impedit velit voluptas in commodi eligendi error obcaecati, quisquam autem numquam facilis ipsam et. Enim mollitia aperiam eligendi!";
