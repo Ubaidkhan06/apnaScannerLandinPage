@@ -17,9 +17,12 @@ const Section1 = ({ imageList, title, content }) => {
         >
           <div className="flex justify-center items-center gap-2">
             {imageList?.map((ele) => (
-              <motion.div variants={framerItem} className="items-center gap-2">
+              <motion.div
+                key={ele.name}
+                variants={framerItem}
+                className="items-center gap-2"
+              >
                 <Image
-                  key={ele.name}
                   src={ele.image}
                   width={500}
                   height={500}
