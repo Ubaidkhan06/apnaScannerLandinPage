@@ -12,23 +12,19 @@
 *::after {
   box-sizing: border-box;
 }
-
 * {
   margin: 0;
 }
-
 html,
 body {
   height: 100%;
 }
-
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  /* overflow: hidden; */
   scroll-behavior: smooth;
-  overflow: hidden;
 }
-
 img,
 picture,
 video,
@@ -37,14 +33,12 @@ svg {
   display: block;
   max-width: 100%;
 }
-
 input,
 button,
 textarea,
 select {
   font: inherit;
 }
-
 p,
 h1,
 h2,
@@ -54,65 +48,43 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
-
-/* styles.css */
-
-
-.container {
-  transition: all 0.01s ease-in-out;
-  /* display: flex; */
-  overflow: auto;
-  /* flex-direction: column; */
-  scroll-snap-type: y mandatory;
-}
-
-.item {
-  min-height: 100%;
-  scroll-snap-align: start;
-}
-
 #root,
 #__next {
   isolation: isolate;
 }
 
+
+/* custom css */
+/* 
+.scroll_container {
+  transition: all 0.01s ease-in-out;
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+}
+
+.scroll_item {
+  min-height: 100%;
+  scroll-snap-align: start;
+} */
+
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 2px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: rgb(105, 97, 97);
+  visibility: hidden;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: rgb(181, 176, 176);
+  visibility: hidden;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-/* DEMO-SPECIFIC STYLES */
-.typewriter {
-  overflow: hidden; /*Ensures the content is not revealed until the animation*/
-  white-space: nowrap; /*Keeps the content on a single line*/
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  animation: 
-    typing 3.5s steps(30, end),
-    blink-caret .5s step-end infinite;
-}
-
-/* The typing effect */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: orange }
+  background: rgb(170, 163, 163);
+  visibility: hidden
 }

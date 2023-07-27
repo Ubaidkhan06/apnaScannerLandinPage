@@ -1,48 +1,60 @@
 "use client";
-import Image from "next/image";
+import { framerContainer, framerItem } from "@/utils/constants";
 import { motion } from "framer-motion";
-import { container, item } from "@/app/page";
-import { Player } from "@lottiefiles/react-lottie-player";
+import Image from "next/image";
 
-const Section1 = ({ title, content, imageList, file }) => {
+const Section1 = ({ imageList, title, content }) => {
   return (
-    <>
-      <div className="flex  p-8 justify-evenly items-center h-screen">
+    <div className="hero min-h-screen bg-gradient-to-b from-base-100 to-base-300">
+      <div className="hero-content flex-col md:flex-row md:gap-40">
         <motion.div
+          variants={framerContainer}
           initial={"hidden"}
-          variants={container}
           whileInView={"visible"}
           viewport={{ once: true }}
-          className="flex justify-center items-center flex-wrap gap-8 w-6/12 bg-primaryPurple p-4"
+          className="bg-gradient-to-r from-secondaryPurple to-tertiaryPurple p-4"
           style={{ borderRadius: "57% 43% 42% 58% / 59% 30% 70% 41% " }}
         >
-          {!file ? imageList?.map((ele) => (
-            <motion.div
-              key={ele.name}
-              variants={item}
-              whileHover={{ scale: 1.15, zIndex: 1 }}
-              className="mockup-window bg-paleBlue w-72 h-auto  "
-            >
-              <div className="flex justify-center bg-primaryPurple">
+          <div className="flex justify-center items-center gap-2">
+            {imageList?.map((ele) => (
+              <motion.div
+                key={ele.name}
+                variants={framerItem}
+                className="items-center gap-2"
+              >
                 <Image
-                  src={ele?.image}
+                  src={ele.image}
                   width={500}
                   height={500}
-                  alt="logo"
-                  className=""
+                  alt="ss"
+                  className="w-32 h-64 md:w-64 md:h-[500px]"
                 />
-              </div>
-            </motion.div>
-          )) : <Player src={file} loop autoplay style={{height : "600px", width : "600px"}} />}
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
-        <motion.div className="w-[539px]">
-          <motion.h1 className="text-4xl font-medium text-tertiaryPurple">{title}</motion.h1>
-          <motion.p className="mt-4 text-xl leading-relaxed">
+        <motion.div
+          viewport={{ once: true }}
+          variants={framerContainer}
+          initial={"hidden"}
+          whileInView={"visible"}
+          className="z-10 md:w-[500px]"
+        >
+          <motion.h1
+            variants={framerItem}
+            className="text-3xl font-bold text-center md:text-left md:text-5xl bg-gradient-to-r from-secondaryPurple to-tertiaryPurple bg-clip-text text-transparent"
+          >
+            {title}
+          </motion.h1>
+          <motion.div
+            variants={framerItem}
+            className="py-6 text-center md:text-left md:text-xl md:leading-relaxed"
+          >
             {content}
-          </motion.p>
+          </motion.div>
         </motion.div>
       </div>
-    </>
+    </div>
   );
 };
 
