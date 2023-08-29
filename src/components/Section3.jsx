@@ -1,42 +1,54 @@
 "use client";
 import { framerContainer, framerItem } from "@/utils/constants";
-import { Player } from "@lottiefiles/react-lottie-player";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const Pricing = ({ content }) => {
+const Section3 = ({ title, content, imageList }) => {
   return (
     <div className="hero min-h-screen bg-gradient-to-b from-base-100 to-base-300">
-      <div className="hero-content flex-col md:flex-row md:gap-40">
+      <div className="hero-content flex-col md:flex-row md:gap-40 md:justify-between">
         <motion.div
-          variants={framerContainer}
           initial={"hidden"}
           whileInView={"visible"}
+          variants={framerContainer}
           viewport={{ once: true }}
           className="bg-gradient-to-r from-secondaryPurple to-tertiaryPurple p-4"
           style={{ borderRadius: "57% 43% 42% 58% / 59% 30% 70% 41% " }}
         >
-          <div className="flex justify-center items-center gap-2">
-            <Player
-              src={require("@/lottiefiles/price.json")}
-              loop
-              autoplay
-              style={{ width: "100%", height: "100%" }}
-            />
+          <div className="flex flex-wrap justify-center items-center gap-8">
+            {imageList?.map((ele) => (
+              <motion.div
+                key={ele.name}
+                variants={framerItem}
+                whileHover={{ scale: 1.15, zIndex: 1 }}
+                className="md:mockup-window bg-neutral-50"
+              >
+                <div className="flex flex-wrap justify-center bg-gradient-to-r from-secondaryPurple to-tertiaryPurple">
+                  <Image
+                    src={ele?.image}
+                    width={500}
+                    height={500}
+                    alt="logo"
+                    className="w-32 md:w-64 h-auto"
+                  />
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
+        {/* text content */}
         <motion.div
           viewport={{ once: true }}
           variants={framerContainer}
           initial={"hidden"}
           whileInView={"visible"}
-          className="z-10 md:w-[500px]"
+          className="z-10 md:w-[1050px]"
         >
           <motion.h1
             variants={framerItem}
             className="text-3xl font-bold text-center md:text-left md:text-5xl bg-gradient-to-r from-secondaryPurple to-tertiaryPurple bg-clip-text text-transparent"
           >
-            Pricing
+            {title}
           </motion.h1>
           <motion.div
             variants={framerItem}
@@ -50,4 +62,4 @@ const Pricing = ({ content }) => {
   );
 };
 
-export default Pricing;
+export default Section3;

@@ -1,3 +1,6 @@
+"use client";
+import { motion } from "framer-motion";
+
 export const heading = "Automated Restaurant Management System";
 export const title = "Automate your restaurants";
 export const content =
@@ -12,7 +15,7 @@ export const adminPanelScreenShots = [
 
 export const section2Content = `Elevate your restaurant management with our dedicated owner dashboard. Seamlessly handle multiple restaurants in one space, update menus , manage staff effortlessly, and gain valuable insights on every table, all in real-time. Take control of your operations like never before.`;
 
-export const section2Title = `Dedicated dashboard for manager and owner`;
+export const section2Title = `Dedicated dashboard for owner`;
 
 export const guestUIScreenShots = [
   { name: "ss1", image: "/images/guestss1.png" },
@@ -26,3 +29,111 @@ export const section3Content =
 export const section4Title = "Dedicated dashboard for Chef and Waiter";
 export const section4Content =
   "Effortlessly manage orders with our dedicated chef and waiter dashboards. Maximize speed, minimize errors, and deliver exceptional service with streamlined order management. Stay organized and in control with a user-friendly interface designed specifically for your kitchen and waitstaff.";
+
+export const framerContainer = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.2,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+export const framerItem = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
+
+let arr = [
+  "- Guest can order food in 4 clicks",
+  "- Operate with or without a waiter",
+  "- Gets sales analytics in finger tips",
+  "- Seamless control, real-time insights, anytime, anywhere.",
+  "- Unlock growth, boost sales, and make data-driven Decisions",
+  "- Master Peak Hours and Customer Cravings with Data Insights",
+];
+
+export const tempContent = (
+  <motion.ul
+    initial={"hidden"}
+    whileInView={"visible"}
+    variants={framerContainer}
+    viewport={{ once: true }}
+  >
+    {arr?.map((ele, idx) => (
+      <motion.li key={idx} className="mt-1" variants={framerItem}>
+        {ele}
+      </motion.li>
+    ))}
+  </motion.ul>
+);
+
+export const navbarItems = ["About", "Features", "Pricing", "Contact"];
+
+export const pricingContent =
+  "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident itaque quia unde impedit velit voluptas in commodi eligendi error obcaecati, quisquam autem numquam facilis ipsam et. Enim mollitia aperiam eligendi!";
+
+export const signUpForm = [
+  {
+    name: "name",
+    placeholder: "Name",
+    type: "text",
+  },
+  {
+    name: "email",
+
+    placeholder: "Email",
+    type: "email",
+  },
+  {
+    name: "phone_no",
+    placeholder: "Phone Number",
+    type: "numeric",
+  },
+  {
+    name: "gst_no",
+
+    placeholder: "Gst No.",
+    type: "text",
+  },
+  {
+    name: "pan_no",
+
+    placeholder: "Pan No.",
+    type: "text",
+  },
+  {
+    name: "address",
+    placeholder: "Address",
+    type: "text",
+  },
+  {
+    name: "city",
+
+    placeholder: "City",
+    type: "text",
+  },
+  {
+    name: "pin_code",
+    placeholder: "Pin Code",
+    type: "numeric",
+  },
+  {
+    name: "state",
+    placeholder: "State",
+    type: "text",
+  },
+  {
+    name: "country",
+    placeholder: "Country",
+    type: "text",
+  },
+];
+
+export const endpoint = process.env.NEXT_PUBLIC_BASE_URL
