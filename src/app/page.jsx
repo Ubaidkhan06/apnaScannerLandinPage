@@ -19,7 +19,12 @@ import {
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 
-export default function Home() {
+export default async function Home() {
+
+  const data = await (await fetch("https://api.apnascanner.com/api/subscription-plan")).json()
+
+  console.log(data);
+
   return (
     <main>
       <Navbar>
@@ -56,7 +61,7 @@ export default function Home() {
             />
           </section>
           <section className="scroll_item">
-            <Pricing content={pricingContent}/>
+            <Pricing content={data}/>
           </section>
         </div>
       </Navbar>
