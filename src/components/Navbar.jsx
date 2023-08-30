@@ -2,11 +2,9 @@
 import { navbarItems } from "@/utils/constants";
 import Image from "next/image";
 import Link from "next/link";
-import Modal from "./Modal";
-import Modal2 from "./Modal2";
+
 
 const Navbar = ({ children }) => {
-  const id = 4;
 
   return (
     <div className="drawer">

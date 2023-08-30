@@ -2,7 +2,6 @@
 import { framerContainer, framerItem } from "@/utils/constants";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const Pricing = ({ content }) => {
   return (
@@ -42,7 +41,9 @@ const Pricing = ({ content }) => {
             variants={framerItem}
             className="py-6 text-center md:text-left md:text-xl md:leading-relaxed"
           >
-            {content}
+            <h1>{content?.name}</h1>
+            <p>{content?.monthly_price}</p>
+            <p>{content?.yearly_price}</p>
           </motion.div>
         </motion.div>
       </div>

@@ -1,10 +1,11 @@
 "use client";
-import { endpoint, signUpForm } from "@/utils/constants";
-import Image from "next/image";
-import { useState } from "react";
-import axios from "axios";
 
-const Signup = async () => {
+import { endpoint } from "@/utils/constants";
+import axios from "axios";
+import { useSnackbar } from "notistack";
+import { useState } from "react";
+
+const SignUp = () => {
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -13,74 +14,160 @@ const Signup = async () => {
     pan_no: "",
     address: "",
     city: "",
-    state: "",
     pin_code: "",
+    state: "",
     country: "",
   });
+
+  const { enqueueSnackbar } = useSnackbar();
+
+  function objectToFormData(obj) {
+    const formData = new FormData();
+
+    Object.entries(obj).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+
+    return formData;
+  }
+
+  const formData = objectToFormData(data);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${endpoint}/api/brand`, { ...data });
-      console.log(res);
+      const response = await axios({
+        method: "post",
+        url: `${endpoint}/api/brand`,
+        data: formData,
+        headers: {
+          "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+        },
+      });
+      if (response?.data?.error) {
+        enqueueSnackbar(response.data?.error, { variant: "error" });
+      }
+      enqueueSnackbar(response.data, { variant: "success" });
+      console.log(response);
     } catch (err) {
       console.log(err);
     }
-    // console.log(data);
   };
 
   return (
-    <>
-      <div className="flex">
-        <div className="hidden md:flex w-full h-screen bg-gradient-to-br from-base-200 to-base-100 justify-center items-center">
-          <div className="flex flex-col items-center">
-            <Image
-              src={"/images/logo.png"}
-              width={200}
-              height={200}
-              alt="guestss"
-            />
-            <div className="md:text-9xl text-center">
-              Apna{" "}
-              <div
-                className=" text-primaryPurple font-bold border-8 border-primaryPurple 
-                  rotate-12 hover:rotate-0 transition-all ease-in-out duration-300"
-              >
-                Scanner
-              </div>
-            </div>
+    <div className="flex">
+      <div
+        className="hidden lg:flex w-full bg-gradient-to-br h-screen from-neutral-50 justify-center 
+      items-center to-base-200"
+      >
+        <div className="text-9xl text-center">
+          <h1>Apna</h1>
+          <div className="text-primaryPurple font-bold border-primaryPurple border-4 p-2">
+            Scanner
           </div>
-        </div>
-        <div className="w-full lg:h-screen bg-base-100 p-10 gap-16 flex flex-col justify-center items-center">
-          <div className="text-6xl text-center">
-            Enter your Details and{" "}
-            <span className="text-primaryPurple font-bold">Sign Up</span>
-          </div>
-          <form onSubmit={handleSubmit} className="flex flex-wrap gap-8 items-center justify-center">
-            {signUpForm?.map((ele, idx) => (
-              <input
-                value={data[ele?.name]}
-                onChange={(e) =>
-                  setData({ ...data, [ele.name]: e.target.value })
-                }
-                required
-                key={ele.placeholder}
-                type={ele.type}
-                className="input border-primaryPurple lg:w-80 focus:outline-primaryPurple border-2"
-                placeholder={ele.placeholder}
-              />
-            ))}
-            <button
-              type="submit"
-              className="btn hover:bg-secondaryPurple bg-primaryPurple text-base-100 text-xl btn-block"
-            >
-              Sign Up
-            </button>
-          </form>
         </div>
       </div>
-    </>
+      <div className="w-full flex flex-col justify-center items-center">
+        <div className="text-7xl text-center">
+          <h1>
+            Enter your details and{" "}
+            <span className="text-primaryPurple">Sign Up</span>
+          </h1>
+        </div>
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col p-8 justify-center items-center"
+        >
+          <div className="flex flex-wrap mt-4 gap-10 justify-center items-center">
+            <input
+              value={data.name}
+              onChange={(e) => setData({ ...data, name: e.target.value })}
+              type="text"
+              placeholder="Name"
+              required
+              className="input input-primary "
+            />
+            <input
+              required
+              value={data.email}
+              onChange={(e) => setData({ ...data, email: e.target.value })}
+              type="email"
+              placeholder="Email"
+              className="input input-primary    "
+            />
+            <input
+              required
+              value={data.phone_no}
+              onChange={(e) => setData({ ...data, phone_no: e.target.value })}
+              type="number"
+              placeholder="Phone Number"
+              className="input input-primary    "
+            />
+            <input
+              required
+              value={data.gst_no}
+              onChange={(e) => setData({ ...data, gst_no: e.target.value })}
+              type="text"
+              placeholder="Gst No"
+              className="input input-primary    "
+            />
+            <input
+              required
+              value={data.pan_no}
+              onChange={(e) => setData({ ...data, pan_no: e.target.value })}
+              type="text"
+              placeholder="Pan no."
+              maxLength={10}
+              className="input input-primary    "
+            />
+            <input
+              required
+              value={data.address}
+              onChange={(e) => setData({ ...data, address: e.target.value })}
+              type="text"
+              placeholder="Address"
+              className="input input-primary    "
+            />
+            <input
+              required
+              value={data.city}
+              onChange={(e) => setData({ ...data, city: e.target.value })}
+              type="text"
+              placeholder="City"
+              className="input input-primary    "
+            />
+            <input
+              required
+              value={data.pin_code}
+              onChange={(e) => setData({ ...data, pin_code: e.target.value })}
+              type="number"
+              placeholder="Pin Code"
+              className="input input-primary    "
+            />
+            <input
+              required
+              value={data.state}
+              onChange={(e) => setData({ ...data, state: e.target.value })}
+              type="text"
+              placeholder="State"
+              className="input input-primary    "
+            />
+            <input
+              required
+              value={data.country}
+              onChange={(e) => setData({ ...data, country: e.target.value })}
+              type="text"
+              placeholder="Country"
+              className="input input-primary    "
+            />
+          </div>
+          <button type="submit" className="btn bg-primaryPurple mt-4 btn-wide">
+            Sign Up
+          </button>
+        </form>
+      </div>
+    </div>
   );
 };
 
-export default Signup;
+export default SignUp;

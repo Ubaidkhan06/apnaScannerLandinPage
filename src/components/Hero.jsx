@@ -2,8 +2,8 @@
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import Modal from "./Modal";
-import Modal2 from "./Modal2";
+
+import Link from "next/link";
 
 const Hero = ({ heading, content }) => {
   const [text, setText] = useState("");
@@ -57,7 +57,7 @@ const Hero = ({ heading, content }) => {
             transition={{ delay: 1.5, duration: 0.4, type: "spring" }}
             className="btn bg-gradient-to-r from-secondaryPurple to-tertiaryPurple btn-block md:btn-wide"
           >
-            Get Started
+            <Link href={"/signup"}>Get Started</Link>
           </motion.button>
         </div>
       </div>
