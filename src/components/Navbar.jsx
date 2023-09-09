@@ -36,12 +36,18 @@ const Navbar = ({ children }) => {
           <div className="flex-none hidden lg:block">
             <ul className="menu menu-horizontal items-center">
               {/* Navbar menu content here */}
-              {navbarItems?.map((ele) => (
-                <li key={ele} className="text-lg">
-                  <a>{ele}</a>
+               {navbarItems?.map((item) => (
+                <li key={item} className="text-lg">
+                  <a href={`/#${item.toLowerCase()}`}>{item}</a>
                 </li>
               ))}
+
             </ul>
+            <Link href={"/login"}>
+              <li className="text-lg btn bg-gradient-to-r from-secondaryPurple to-tertiaryPurple">
+                Log In
+              </li>
+            </Link>
             <Link href={"/signup"}>
               <li className="text-lg btn bg-gradient-to-r from-secondaryPurple to-tertiaryPurple">
                 Sign Up
@@ -56,13 +62,16 @@ const Navbar = ({ children }) => {
         <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 h-full bg-base-100 space-y-4">
           {/* Sidebar content here */}
-          {navbarItems.map((ele) => (
-            <li key={ele} className="shadow-sm rounded-lg">
-              <a className="p-4">{ele}</a>
+          {navbarItems.map((item) => (
+            <li key={item} className="shadow-sm rounded-lg">
+                 <a href={`/#${item.toLowerCase()}`}>{item}</a>
             </li>
           ))}
+           <li>
+         <Link href={"/login"}>Login</Link>
+          </li>
           <li>
-            <Link href={"/signup"}>Signup</Link>
+         <Link href={"/signup"}>Signup</Link>
           </li>
         </ul>
       </div>

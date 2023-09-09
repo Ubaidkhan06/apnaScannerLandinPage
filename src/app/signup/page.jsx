@@ -2,8 +2,8 @@
 
 import { endpoint } from "@/utils/constants";
 import axios from "axios";
-import { useSnackbar } from "notistack";
-import { useState } from "react";
+import { SnackbarProvider, useSnackbar } from "notistack";
+import { useState, useEffect } from "react";
 
 const SignUp = () => {
   const [data, setData] = useState({
@@ -32,7 +32,7 @@ const SignUp = () => {
   }
 
   const formData = objectToFormData(data);
-
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -44,17 +44,21 @@ const SignUp = () => {
           "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
         },
       });
+      // If the server sends back an error message
       if (response?.data?.error) {
         enqueueSnackbar(response.data?.error, { variant: "error" });
-      }
-      enqueueSnackbar(response.data, { variant: "success" });
-      console.log(response);
-    } catch (err) {
+        console.log(response.data)
+    } else {
+        enqueueSnackbar("Signed up successfully!", { variant: "success" });
+        console.log(response.data)
+    } } catch (err) {
+      enqueueSnackbar("Something went wrong!", { variant: "error" });
       console.log(err);
     }
   };
 
   return (
+    <SnackbarProvider>
     <div className="flex">
       <div
         className="hidden lg:flex w-full bg-gradient-to-br h-screen from-neutral-50 justify-center 
@@ -167,6 +171,7 @@ const SignUp = () => {
         </form>
       </div>
     </div>
+    </SnackbarProvider>
   );
 };
 

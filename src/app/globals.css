@@ -6,6 +6,9 @@
   /* Global variables to be defined here */
   --color-white: #ffffff;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 *,
 *::before,

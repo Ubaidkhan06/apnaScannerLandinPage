@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Section1 = ({ imageList, title, content }) => {
   return (
-    <div className="hero min-h-screen bg-gradient-to-b from-base-100 to-base-300">
+    <div id="about" className="hero min-h-screen bg-gradient-to-b from-base-100 to-base-300">
       <div className="hero-content flex-col md:flex-row md:gap-40">
         <motion.div
           variants={framerContainer}
