@@ -1,3 +1,4 @@
+'use client'
 import Pricing from "@/components/Pricing";
 import Section1 from "@/components/Section1";
 import Section2 from "@/components/Section2";
@@ -18,6 +19,8 @@ import {
 } from "@/utils/constants";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
+import { SnackbarProvider } from "notistack";
+import SignUp from "./signup/page";
 
 export default async function Home() {
 
@@ -27,6 +30,13 @@ export default async function Home() {
 
   return (
     <main>
+      <SnackbarProvider 
+      maxSnack={3}
+      anchorOrigin={{
+        vertical:'bottom',
+        horizontal:'center'
+      }}
+      >
       <Navbar>
         <div className="scroll_container">
           <section className="scroll_item">
@@ -64,7 +74,9 @@ export default async function Home() {
             <Pricing content={data}/>
           </section>
         </div>
+        
       </Navbar>
+    </SnackbarProvider>
     </main>
   );
 }

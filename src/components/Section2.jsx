@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const Section2 = ({ title, content, imageList, check }) => {
   return (
-    <div className="hero min-h-screen bg-gradient-to-b from-base-300 to-base-100">
+    <div id="features" className="hero min-h-screen bg-gradient-to-b from-base-300 to-base-100">
       <div className="hero-content flex-col md:flex-row-reverse md:gap-40 md:justify-between">
         <motion.div
           initial={"hidden"}
